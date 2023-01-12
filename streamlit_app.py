@@ -1,7 +1,7 @@
 # importing essential libraries
 import streamlit
 import pandas
-import requests
+
 # adding title, header and text to the application
 streamlit.title('My Parents New Healthy Diner')
 streamlit.header('Breakfast Favorites')
@@ -21,7 +21,7 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 streamlit.dataframe(fruits_to_show)
  # new section to display fruitvise api response 
 streamlit.header("Fruityvice Fruit Advice!")
-               
+import requests               
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
 streamlit.text(fruityvice_response)
 
