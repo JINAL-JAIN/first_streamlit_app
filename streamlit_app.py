@@ -24,8 +24,8 @@ streamlit.dataframe(fruits_to_show)
 
 def get_fruityvice_data(this_fruit_choice):
        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + this_fruit_choice )
-       get_fruityvice_data = pandas.json_normalize(fruityvice_response.json())
-       return get_fruityvice_data
+       fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+       return fruityvice_normalized
    
 # new section to display fruitvise api response 
  
@@ -40,10 +40,8 @@ try:
        
 except URLError as e:
     streamlit.error()
-
-streamlit.write('The user entered ', fruit_choice)
-
 streamlit.stop()
+
 streamlit.header("The fruit load list contains:")
 def get_fruit_load_list():
     with my_cnx.cursor() as my_cur:
